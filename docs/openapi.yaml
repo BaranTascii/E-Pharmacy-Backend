@@ -1,0 +1,71 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Admin dashboard API for E-Pharmacy
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  description: This is a documentation of admin dashboard API for E-Pharmacy.
+tags:
+  - name: Auth
+    description: Auth operations.
+  - name: Dashboard
+    description: Operations about user.
+  - name: Orders
+    description: Operations about orders.
+  - name: Products
+    description: Operations about products.
+  - name: Suppliers
+    description: Operations about suppliers.
+  - name: Customers
+    description: Operations about customers.
+servers:
+  - url: https://admin-dashboard-backend-t6zq.onrender.com
+paths:
+  /api/user/login:
+    post:
+      $ref: ../swagger/paths/auth/login.yaml
+  /api/user/logout:
+    post:
+      $ref: ../swagger/paths/auth/logout.yaml
+  /api/user/refresh:
+    post:
+      $ref: ../swagger/paths/auth/refresh.yaml
+  /api/user/user-info:
+    get:
+      $ref: ../swagger/paths/auth/user-info.yaml
+  /api/dashboard:
+    get:
+      $ref: ../swagger/paths/dashboard/get.yaml
+  /api/orders:
+    get:
+      $ref: ../swagger/paths/orders/get.yaml
+  /api/products:
+    get:
+      $ref: ../swagger/paths/products/get.yaml
+    post:
+      $ref: ../swagger/paths/products/post.yaml
+  /api/products/{productId}:
+    put:
+      $ref: ../swagger/paths/products/{productId}/put.yaml
+    delete:
+      $ref: ../swagger/paths/products/{productId}/delete.yaml
+  /api/suppliers:
+    get:
+      $ref: ../swagger/paths/suppliers/get.yaml
+    post:
+      $ref: ../swagger/paths/suppliers/post.yaml
+  /api/suppliers/{supplierId}:
+    put:
+      $ref: ../swagger/paths/suppliers/{supplierId}/put.yaml
+  /api/customers:
+    get:
+      $ref: ../swagger/paths/customers/get.yaml
+  /api/customers/{customerId}:
+    get:
+      $ref: ../swagger/paths/customers/{customerId}/get.yaml
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
