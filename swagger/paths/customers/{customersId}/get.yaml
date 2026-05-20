@@ -1,20 +1,20 @@
 tags:
-  - Products
-summary: Delete a product
-operationId: deleteProduct
-description: 'Delete a product'
+  - Customers
+summary: Get customer by id
+operationId: getCustomerById
+description: 'Get customer by id'
 security:
   - bearerAuth: []
 parameters:
   - in: path
-    name: productId
+    name: customerId
     required: true
     schema:
       type: string
-      example: '60c72b2f9b1e8a001c8e4f5a'
+      example: '683f39107520d923c30c2b36'
 responses:
   '200':
-    description: 'Successfully deleted a product!'
+    description: 'Successfully found customer with id!'
     content:
       application/json:
         schema:
@@ -29,16 +29,13 @@ responses:
               example: 200
             message:
               type: string
-              example: 'Successfully deleted a product!'
+              example: 'Successfully found customer with id 683f39107520d923c30c2b36!'
             data:
-              type: string
-              example: '60c72b2f9b1e8a001c8e4f5a'
+              $ref: '../../../components/schemas/customer.yaml'
   '401':
     $ref: '../../../components/responses/401.yaml'
-  '403':
-    $ref: '../../../components/responses/403.yaml'
   '404':
-    description: 'Product not found'
+    description: 'Customer not found'
     content:
       application/json:
         schema:
@@ -52,6 +49,6 @@ responses:
               example: 404
             message:
               type: string
-              example: 'Product not found'
+              example: 'Customer not found'
   '500':
-    $ref: ../../../components/responses/500.yaml
+    $ref: '../../../components/responses/500.yaml'
