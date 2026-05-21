@@ -19,8 +19,8 @@ export const startServer = () => {
 
   const origins = [
     'http://localhost:5173',
-    'https://admin-dashboard-frontend-silk.vercel.app',
-    'https://admin-dashboard-backend-t6zq.onrender.com',
+    'https://e-pharmacy-frontend-sandy.vercel.app',
+    'https://e-pharmacy-backend-yr4f.onrender.com',
   ];
   app.use(
     cors({
